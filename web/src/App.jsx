@@ -119,9 +119,11 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <h1>✈ Aviation Weather</h1>
+        <div className="header-top">
+          <h1>✈ Aviation Weather</h1>
+          <ThemeToggle dark={darkMode} onToggle={() => setDarkMode((d) => !d)} />
+        </div>
         <p className="subtitle">METAR &amp; TAF lookup by airport code</p>
-        <ThemeToggle dark={darkMode} onToggle={() => setDarkMode((d) => !d)} />
       </header>
 
       <div className="search-row">
