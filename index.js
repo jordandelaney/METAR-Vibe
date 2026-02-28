@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+const FRONTEND_URL = process.env.FRONTEND_URL || "*";
 
 // ---------------------------------------------------------------------------
 // Flight category helpers
@@ -211,7 +212,7 @@ function translateTaf(tafString) {
 
 // ---------------------------------------------------------------------------
 
-app.use(cors());
+app.use(cors({ origin: FRONTEND_URL }));
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {

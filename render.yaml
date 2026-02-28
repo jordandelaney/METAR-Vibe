@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: metar-vibe-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        sync: false   # set manually in Render dashboard to your Vercel URL

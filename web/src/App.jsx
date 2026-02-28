@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+// In dev the Vite proxy handles /api → localhost:3001.
+// In production on Vercel, VITE_API_URL is set to the Render backend URL.
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
+
 const STORAGE_KEY        = "metar-recent-searches";
 const THEME_KEY          = "metar-theme";
 const MAX_RECENT         = 6;
@@ -94,7 +98,7 @@ export default function App() {
     setError(null);
     setWeather(null);
     try {
-      const res  = await fetch(`/api/weather?station=${code}`);
+      const res  = await fetch(`${API_BASE}/api/weather?station=${code}`);
       const data = await res.json();
       if (!res.ok) setError(data.error || "Something went wrong.");
       else { setWeather(data); addToRecent(code); }
