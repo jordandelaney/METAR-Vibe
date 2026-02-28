@@ -1,0 +1,18 @@
+{
+  "name": "metar-vibe",
+  "version": "1.0.0",
+  "description": "METAR/TAF weather data server",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
